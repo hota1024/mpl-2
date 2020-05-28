@@ -14,7 +14,7 @@ export interface ILoc {
 
   /**
    * Merge location.
-   * 
+   *
    * @param loc Other location.
    */
   merge(loc: ILoc): ILoc
