@@ -14,9 +14,4 @@ export interface IToken {
    * Token location
    */
   loc: ILoc
-
-  /**
-   * Returns token full text in source.
-   */
-  getFullText(): string
 }
