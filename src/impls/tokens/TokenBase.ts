@@ -9,6 +9,11 @@ export class TokenBase implements IToken {
 
   loc: ILoc
 
+  /**
+   * TokenBase constructor.
+   *
+   * @param loc Token location.
+   */
   constructor(loc: ILoc) {
     this.loc = loc
   }
