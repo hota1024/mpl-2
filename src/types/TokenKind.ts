@@ -7,7 +7,6 @@ export type TokenKind =
   | 'symbol' // symbols(with operators)
   | 'identifier' // names
   | 'reserved' // reserved keywords
-  | 'ident'
   | 'new_line'
   | 'inline_comment'
   | 'range_comment'
