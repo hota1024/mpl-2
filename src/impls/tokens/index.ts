@@ -1,2 +1,2 @@
-export * from './NumericToken'
+export * from './NumericLiteralToken'
 export * from './StringToken'
