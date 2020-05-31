@@ -1,7 +1,11 @@
-export * from './CommentTokenBase'
-export * from './InlineCommentToken'
+export * from './TokenBase'
+
+// Literals
 export * from './LiteralTokenBase'
 export * from './NumericLiteralToken'
-export * from './RangeCommentToken'
 export * from './StringLiteralToken'
-export * from './TokenBase'
+
+// Comments
+export * from './CommentTokenBase'
+export * from './InlineCommentToken'
+export * from './RangeCommentToken'
