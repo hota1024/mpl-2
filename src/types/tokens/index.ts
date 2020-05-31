@@ -13,3 +13,4 @@ export * from './RangeCommentToken'
 // Symbols
 export * from './EqualsEqualsToken'
 export * from './ExclamationEqualsToken'
+export * from './GreaterThanToken'
