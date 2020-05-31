@@ -9,3 +9,6 @@ export * from './StringLiteralToken'
 export * from './CommentTokenBase'
 export * from './InlineCommentToken'
 export * from './RangeCommentToken'
+
+// Symbols
+export * from './EqualsEqualsToken'
