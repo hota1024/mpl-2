@@ -29,11 +29,12 @@ export type TokenKind =
   | 'right_square_brackets'
   | 'comma'
   | 'semicolon'
-  // Keywords
+  // Reserved keywords
   | 'if'
   | 'else'
   | 'const'
   | 'let'
+  // Keywords
   | 'true'
   | 'false'
   // Others
