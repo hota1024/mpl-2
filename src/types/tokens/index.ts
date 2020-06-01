@@ -31,3 +31,6 @@ export * from './LeftSquareBracketsToken'
 export * from './RightSquareBracketsToken'
 export * from './CommaToken'
 export * from './SemicolonToken'
+
+// Reserved keywords
+export * from './IfToken'
