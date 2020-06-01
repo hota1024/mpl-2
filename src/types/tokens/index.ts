@@ -34,3 +34,4 @@ export * from './SemicolonToken'
 
 // Reserved keywords
 export * from './IfToken'
+export * from './ElseToken'
