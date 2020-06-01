@@ -29,6 +29,7 @@ export type TokenKind =
   | 'right_square_brackets'
   | 'comma'
   | 'semicolon'
+  | 'colon'
   // Reserved keywords
   | 'if'
   | 'else'
