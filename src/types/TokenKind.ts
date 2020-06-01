@@ -30,6 +30,7 @@ export type TokenKind =
   | 'comma'
   | 'semicolon'
   | 'colon'
+  | 'question'
   // Reserved keywords
   | 'if'
   | 'else'
