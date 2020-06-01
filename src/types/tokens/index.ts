@@ -44,3 +44,4 @@ export * from './FalseKeywordToken'
 
 // Others
 export * from './NewLineToken'
+export * from './IdentifierToken'
