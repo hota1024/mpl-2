@@ -28,6 +28,7 @@ export type TokenKind =
   | 'left_square_brackets'
   | 'right_square_brackets'
   | 'comma'
+  | 'dot'
   | 'semicolon'
   | 'colon'
   | 'question'
