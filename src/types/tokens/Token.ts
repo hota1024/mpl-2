@@ -31,6 +31,7 @@ import { TrueKeywordToken } from './TrueKeywordToken'
 import { FalseKeywordToken } from './FalseKeywordToken'
 import { NewLineToken } from './NewLineToken'
 import { IdentifierToken } from './IdentifierToken'
+import { DotToken } from './DotToken'
 
 /*
  * Token type.
@@ -60,6 +61,7 @@ export type Token =
   | LeftSquareBracketsToken
   | RightSquareBracketsToken
   | CommaToken
+  | DotToken
   | SemicolonToken
   | ColonToken
   | QuestionToken
