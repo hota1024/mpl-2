@@ -43,3 +43,4 @@ export * from './TrueKeywordToken'
 export * from './FalseKeywordToken'
 
 // Others
+export * from './NewLineToken'
