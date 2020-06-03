@@ -29,6 +29,6 @@ export abstract class LocatedError extends Error {
    * To string.
    */
   toString(): string {
-    return `${this.name} ${this.message} (${this.loc.start}, ${this.loc.end})`
+    return `${this.name}(${this.loc.start}-${this.loc.end}) ${this.message} `
   }
 }
