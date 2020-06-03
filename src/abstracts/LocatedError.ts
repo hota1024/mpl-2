@@ -17,10 +17,11 @@ export abstract class LocatedError extends Error {
   /**
    * LocatedError constructor.
    *
+   * @param message Message string.
    * @param loc Loc.
    */
-  constructor(loc: ILoc) {
-    super()
+  constructor(message: string, loc: ILoc) {
+    super(message)
     this.loc = loc
   }
 
