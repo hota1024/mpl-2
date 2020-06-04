@@ -96,4 +96,14 @@ describe('Walker class', () => {
       end: 2,
     })
   })
+
+  test('Walker#locFrom', () => {
+    const walker = new Walker('test')
+
+    walker.next(3)
+    expect(walker.locFrom(0)).toMatchObject({
+      start: 0,
+      end: 3,
+    })
+  })
 })
