@@ -8,14 +8,14 @@ export interface ILexerRule {
   /**
    * Validate rule.
    *
-   * @param walker Token walker.
+   * @param walker String walker.
    */
-  validate(walker: IWalker<Token>): boolean
+  validate(walker: IWalker<string>): boolean
 
   /**
    * Execute rule.
    *
-   * @param walker Token walker.
+   * @param walker String walker.
    */
-  execute(walker: IWalker<Token>): Token
+  execute(walker: IWalker<string>): Token
 }
