@@ -25,6 +25,19 @@ describe('Walker class', () => {
     expect(walker.index()).toBe(3)
   })
 
+  test('Walker#value', () => {
+    const walker = new Walker('test')
+
+    expect(walker.value()).toBe('t')
+    walker.next()
+    expect(walker.value()).toBe('e')
+    walker.next()
+    expect(walker.value()).toBe('s')
+    walker.next()
+    expect(walker.value()).toBe('t')
+    walker.next()
+  })
+
   test('Walker#next', () => {
     const walker = new Walker('test')
 
