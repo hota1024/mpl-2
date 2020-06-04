@@ -1,3 +1,5 @@
+import { ILoc } from './Loc'
+
 /*
  * WalkerPatternFn type.
  */
@@ -47,4 +49,11 @@ export interface IWalker<T> {
    * Returns whether done walking.
    */
   done(): boolean
+
+  /**
+   * Returns location to steps.
+   *
+   * @param steps Steps.
+   */
+  locTo(steps: number): ILoc
 }

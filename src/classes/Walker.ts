@@ -1,4 +1,5 @@
 import { IWalker, WalkerPattern } from '../interfaces'
+import { Loc } from './Loc'
 
 /*
  * Walker class.
@@ -70,5 +71,9 @@ export class Walker<T> implements IWalker<T> {
 
   done(): boolean {
     return this.mIndex >= this.mValues.length
+  }
+
+  locTo(steps: number): Loc {
+    return new Loc(this.index(), this.index() + steps)
   }
 }
