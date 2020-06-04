@@ -70,6 +70,7 @@ describe('Walker class', () => {
   test('Walker#match', () => {
     const walker = new Walker('1 == 2')
 
+    expect(walker.match('にゃーん')).toBeFalsy()
     expect(walker.match('1')).toBeTruthy()
     walker.next(2)
     expect(walker.match('==')).toBeTruthy()
