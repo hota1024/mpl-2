@@ -80,4 +80,12 @@ export class Walker<T> implements IWalker<T> {
   locFrom(start: number): Loc {
     return new Loc(start, this.index())
   }
+
+  slice(start: number, end: number): T[] {
+    return this.mValues.slice(start, end)
+  }
+
+  sliceFrom(start: number): T[] {
+    return this.mValues.slice(start, this.index())
+  }
 }

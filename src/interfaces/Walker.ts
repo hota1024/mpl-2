@@ -63,4 +63,19 @@ export interface IWalker<T> {
    * @param start Start.
    */
   locFrom(start: number): ILoc
+
+  /**
+   * Returns sliced values.
+   *
+   * @param start Start.
+   * @param end End.
+   */
+  slice(start: number, end: number): T[]
+
+  /**
+   * Returns sliced values.
+   *
+   * @param start Start.
+   */
+  sliceFrom(start: number): T[]
 }
