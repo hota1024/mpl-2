@@ -19,10 +19,8 @@ export interface IWalker<T> {
 
   /**
    * Returns value.
-   *
-   * @param offset offset index.
    */
-  value(offset?: number): T
+  value(): T
 
   /**
    * Forward index and returns value.
