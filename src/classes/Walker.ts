@@ -16,11 +16,24 @@ export class Walker<T> implements IWalker<T> {
 
   /**
    * Walker constructor.
+   * @param values Values array.
+   */
+  constructor(values: T[])
+
+  /**
+   * Walker constructor.
+   *
+   * @param values Values iterator.
+   */
+  constructor(values: Iterable<T>)
+
+  /**
+   * Walker constructor.
    *
    * @param values Values.
    */
-  constructor(values: T[]) {
-    this.mValues = values
+  constructor(values: T[] | Iterable<T>) {
+    this.mValues = Array.isArray(values) ? values : Array.from(values)
   }
 
   index(): number {
@@ -42,7 +55,7 @@ export class Walker<T> implements IWalker<T> {
   }
 
   match(patterns: Iterable<WalkerPattern<T>>): boolean {
-    let index = 0
+    let index = this.mIndex
 
     for (const pattern of patterns) {
       if (pattern !== this.mValues[index]) {
