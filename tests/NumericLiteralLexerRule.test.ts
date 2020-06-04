@@ -7,6 +7,7 @@ import { Walker, Loc } from '../src/classes'
 
 describe('NumericLiteralLexerRule class', () => {
   test('NumericLiteralLexerRule#constructor', () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const rule = new NumericLiteralLexerRule()
   })
 
