@@ -87,4 +87,13 @@ describe('Walker class', () => {
     walker.next()
     expect(walker.done()).toBeTruthy()
   })
+
+  test('Walker#locTo', () => {
+    const walker = new Walker('test')
+
+    expect(walker.locTo(2)).toMatchObject({
+      start: 0,
+      end: 2,
+    })
+  })
 })
