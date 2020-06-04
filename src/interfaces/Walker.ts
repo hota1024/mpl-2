@@ -42,4 +42,9 @@ export interface IWalker<T> {
    * @param patterns Patterns.
    */
   match(patterns: Iterable<WalkerPattern<T>>): boolean
+
+  /**
+   * Returns whether done walking.
+   */
+  done(): boolean
 }

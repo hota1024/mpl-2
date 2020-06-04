@@ -67,4 +67,8 @@ export class Walker<T> implements IWalker<T> {
 
     return true
   }
+
+  done(): boolean {
+    return this.mIndex >= this.mValues.length
+  }
 }
