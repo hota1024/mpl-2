@@ -76,4 +76,14 @@ describe('Walker class', () => {
     walker.next(3)
     expect(walker.match('2')).toBeTruthy()
   })
+
+  test('Walker#done', () => {
+    const walker = new Walker('test')
+
+    expect(walker.done()).toBeFalsy()
+    walker.next(4)
+    expect(walker.done()).toBeTruthy()
+    walker.next()
+    expect(walker.done()).toBeTruthy()
+  })
 })
