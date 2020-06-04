@@ -27,7 +27,7 @@ export interface IWalker<T> {
    *
    * @param steps Steps.
    */
-  next(steps?: number): T
+  next(steps?: number): T | void
 
   /**
    * Returns value of the number of steps ahead.
