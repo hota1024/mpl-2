@@ -76,4 +76,8 @@ export class Walker<T> implements IWalker<T> {
   locTo(steps: number): Loc {
     return new Loc(this.index(), this.index() + steps)
   }
+
+  locFrom(start: number): Loc {
+    return new Loc(start, this.index())
+  }
 }

@@ -56,4 +56,11 @@ export interface IWalker<T> {
    * @param steps Steps.
    */
   locTo(steps: number): ILoc
+
+  /**
+   * Returns location from start.
+   *
+   * @param start Start.
+   */
+  locFrom(start: number): ILoc
 }
