@@ -106,4 +106,18 @@ describe('Walker class', () => {
       end: 3,
     })
   })
+
+  test('Walker#slice', () => {
+    const walker = new Walker('test')
+
+    expect(walker.slice(0, 1)).toEqual(['t'])
+    expect(walker.slice(3, 4)).toEqual(['t'])
+  })
+
+  test('Walker#sliceFrom', () => {
+    const walker = new Walker('test')
+    walker.next(4)
+
+    expect(walker.sliceFrom(0)).toEqual(['t', 'e', 's', 't'])
+  })
 })
