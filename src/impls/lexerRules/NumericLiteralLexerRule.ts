@@ -1,7 +1,7 @@
 import { ILexerRule } from '../../interfaces'
 import { Walker } from '../../classes'
 import { LexerDecimalPointHasAlreadyBeenUsedError } from '../errors'
-import { NumericLiteralToken, LexerRuleExecuteContext } from '../../types'
+import { NumericLiteralToken } from '../../types'
 
 /*
  * NumericLiteralLexerRuleParams type.
