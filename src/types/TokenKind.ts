@@ -53,6 +53,7 @@ export type NoDataTokenKind =
   | SymbolTokenKind
   | ReservedKeywordTokenKind
   | KeywordTokenKind
+  | 'new_line'
 
 /*
  * TokenKind type.
@@ -62,5 +63,4 @@ export type TokenKind =
   | CommentTokenKind
   | NoDataTokenKind
   // Others
-  | 'new_line'
   | 'identifier'
