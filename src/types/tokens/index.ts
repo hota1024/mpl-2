@@ -1,16 +1,19 @@
 export * from './TokenBase'
 
 // Literals
+export * from './SymbolToken'
 export * from './LiteralTokenBase'
 export * from './NumericLiteralToken'
 export * from './StringLiteralToken'
 
 // Comments
+export * from './CommentToken'
 export * from './CommentTokenBase'
 export * from './InlineCommentToken'
 export * from './RangeCommentToken'
 
 // Symbols
+export * from './SymbolToken'
 export * from './EqualsEqualsToken'
 export * from './ExclamationEqualsToken'
 export * from './GreaterThanToken'
@@ -36,12 +39,14 @@ export * from './ColonToken'
 export * from './QuestionToken'
 
 // Reserved keywords
+export * from './ReservedKeywordToken'
 export * from './IfToken'
 export * from './ElseToken'
 export * from './ConstToken'
 export * from './LetToken'
 
 // Keywords
+export * from './KeywordToken'
 export * from './TrueKeywordToken'
 export * from './FalseKeywordToken'
 
