@@ -1,11 +1,10 @@
-import { TrueKeywordToken } from './TrueKeywordToken'
-import { FalseKeywordToken } from './FalseKeywordToken'
 import { NewLineToken } from './NewLineToken'
 import { IdentifierToken } from './IdentifierToken'
 import { LiteralToken } from './LiteralToken'
 import { CommentToken } from './CommentToken'
 import { SymbolToken } from './SymbolToken'
 import { ReservedKeywordToken } from './ReservedKeywordToken'
+import { KeywordToken } from './KeywordToken'
 
 /*
  * Token type.
@@ -15,9 +14,7 @@ export type Token =
   | CommentToken
   | SymbolToken
   | ReservedKeywordToken
-  // Keywords
-  | TrueKeywordToken
-  | FalseKeywordToken
+  | KeywordToken
   // Others
   | NewLineToken
   | IdentifierToken
