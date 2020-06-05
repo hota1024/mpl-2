@@ -22,12 +22,14 @@ import {
   ColonToken,
   QuestionToken,
 } from '../'
+import { EqualsEqualsToken } from './EqualsEqualsToken'
 
 /*
  * SymbolToken type.
  */
 export type SymbolToken =
   | EqualsToken
+  | EqualsEqualsToken
   | ExclamationEqualsToken
   | GreaterThanToken
   | GreaterThanEqualsToken
