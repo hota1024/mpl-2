@@ -3,7 +3,6 @@ import {
   ReservedKeywordToken,
   KeywordToken,
   NewLineToken,
-  IdentifierToken,
 } from '../'
 
 /*
@@ -14,4 +13,3 @@ export type NoDataToken =
   | ReservedKeywordToken
   | KeywordToken
   | NewLineToken
-  | IdentifierToken
