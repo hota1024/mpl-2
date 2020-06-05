@@ -9,6 +9,7 @@ import { IdentifierToken } from './IdentifierToken'
 import { LiteralToken } from './LiteralToken'
 import { CommentToken } from './CommentToken'
 import { SymbolToken } from './SymbolToken'
+import { ReservedKeywordToken } from './ReservedKeywordToken'
 
 /*
  * Token type.
@@ -17,11 +18,7 @@ export type Token =
   | LiteralToken
   | CommentToken
   | SymbolToken
-  // Reserved keywords
-  | IfToken
-  | ElseToken
-  | ConstToken
-  | LetToken
+  | ReservedKeywordToken
   // Keywords
   | TrueKeywordToken
   | FalseKeywordToken
