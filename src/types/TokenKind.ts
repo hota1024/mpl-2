@@ -1,14 +1,17 @@
 /*
- * TokenKind type.
+ * LiteralTokenKind type.
  */
-export type TokenKind =
-  // Literal
-  | 'numeric_literal'
-  | 'string_literal'
-  // Comments
-  | 'inline_comment'
-  | 'range_comment'
-  // Symbols
+export type LiteralTokenKind = 'numeric_literal' | 'string_literal'
+
+/*
+ * CommentTokenKind type.
+ */
+export type CommentTokenKind = 'inline_comment' | 'range_comment'
+
+/*
+ * SymbolTokenKind type.
+ */
+export type SymbolTokenKind =
   | 'equals_equals'
   | 'exclamation_equals'
   | 'greater_than'
@@ -32,14 +35,29 @@ export type TokenKind =
   | 'semicolon'
   | 'colon'
   | 'question'
-  // Reserved keywords
-  | 'if'
-  | 'else'
-  | 'const'
-  | 'let'
-  // Keywords
-  | 'true'
-  | 'false'
+
+/*
+ * ReservedKeywordTokenKind type.
+ */
+export type ReservedKeywordTokenKind = 'if' | 'else' | 'const' | 'let'
+
+/*
+ * KeywordTokenKind type.
+ */
+export type KeywordTokenKind = 'true' | 'false'
+
+/*
+ * NoDataTokenKind type.
+ */
+export type NoDataTokenKind = ReservedKeywordTokenKind | KeywordTokenKind
+
+/*
+ * TokenKind type.
+ */
+export type TokenKind =
+  | LiteralTokenKind
+  | CommentTokenKind
+  | NoDataTokenKind
   // Others
   | 'new_line'
   | 'identifier'
