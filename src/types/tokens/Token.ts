@@ -32,14 +32,13 @@ import { FalseKeywordToken } from './FalseKeywordToken'
 import { NewLineToken } from './NewLineToken'
 import { IdentifierToken } from './IdentifierToken'
 import { DotToken } from './DotToken'
+import { LiteralToken } from './LiteralToken'
 
 /*
  * Token type.
  */
 export type Token =
-  // Literals
-  | NumericLiteralToken
-  | StringLiteralToken
+  | LiteralToken
   // Comments
   | InlineCommentToken
   | RangeCommentToken
