@@ -49,7 +49,10 @@ export type KeywordTokenKind = 'true' | 'false'
 /*
  * NoDataTokenKind type.
  */
-export type NoDataTokenKind = ReservedKeywordTokenKind | KeywordTokenKind
+export type NoDataTokenKind =
+  | SymbolTokenKind
+  | ReservedKeywordTokenKind
+  | KeywordTokenKind
 
 /*
  * TokenKind type.
