@@ -1,5 +1,3 @@
-import { NumericLiteralToken } from './NumericLiteralToken'
-import { StringLiteralToken } from './StringLiteralToken'
 import { InlineCommentToken } from './InlineCommentToken'
 import { RangeCommentToken } from './RangeCommentToken'
 import { EqualsToken } from './EqualsToken'
