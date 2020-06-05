@@ -1,5 +1,3 @@
-import { InlineCommentToken } from './InlineCommentToken'
-import { RangeCommentToken } from './RangeCommentToken'
 import { EqualsToken } from './EqualsToken'
 import { ExclamationEqualsToken } from './ExclamationEqualsToken'
 import { GreaterThanToken } from './GreaterThanToken'
@@ -31,15 +29,14 @@ import { NewLineToken } from './NewLineToken'
 import { IdentifierToken } from './IdentifierToken'
 import { DotToken } from './DotToken'
 import { LiteralToken } from './LiteralToken'
+import { CommentToken } from './CommentToken'
 
 /*
  * Token type.
  */
 export type Token =
   | LiteralToken
-  // Comments
-  | InlineCommentToken
-  | RangeCommentToken
+  | CommentToken
   // Symbols
   | EqualsToken
   | ExclamationEqualsToken
