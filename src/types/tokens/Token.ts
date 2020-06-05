@@ -40,8 +40,10 @@ export type Token =
   // Literals
   | NumericLiteralToken
   | StringLiteralToken
+  // Comments
   | InlineCommentToken
   | RangeCommentToken
+  // Symbols
   | EqualsToken
   | ExclamationEqualsToken
   | GreaterThanToken
