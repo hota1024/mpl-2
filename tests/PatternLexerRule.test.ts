@@ -2,7 +2,7 @@ import { PatternLexerRule } from '../src/impls'
 import { Walker, Loc } from '../src/classes'
 
 describe('PatternLexerRule class', () => {
-  test('PatternLexerRule#constructor', () => {
+  test('PatternLexerRule#constructor(Pattern[])', () => {
     const rule = new PatternLexerRule([
       {
         pattern: '+',
@@ -12,6 +12,24 @@ describe('PatternLexerRule class', () => {
         pattern: '==',
         kind: 'equals_equals',
       },
+    ])
+
+    expect(rule.patterns).toMatchObject([
+      {
+        pattern: '==',
+        kind: 'equals_equals',
+      },
+      {
+        pattern: '+',
+        kind: 'plus',
+      },
+    ])
+  })
+
+  test('PatternLexerRule#constructor(PatternMaker)', () => {
+    const rule = new PatternLexerRule((pattern) => [
+      pattern('==', 'equals_equals'),
+      pattern('+', 'plus'),
     ])
 
     expect(rule.patterns).toMatchObject([
