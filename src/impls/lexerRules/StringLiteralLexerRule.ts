@@ -85,7 +85,6 @@ export class StringLiteralLexerRule implements ILexerRule {
       if (walker.done() || (walker.value() === '\n' && !cap.allowNewLine)) {
         throw new LexerUnterminatedStringLiteralError(walker.locFrom(start))
       } else if (walker.match(cap.end) && !escape) {
-        console.log(escape)
         walker.next(cap.end.length)
         break
       } else if (this.isEscape(walker.value())) {
