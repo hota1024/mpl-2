@@ -18,6 +18,21 @@ export type PatternLexerPattern = {
 }
 
 /*
+ * PatternMakerFn type.
+ */
+export type PatternMakerFn = (
+  pattern: string,
+  kind: NoDataTokenKind
+) => PatternLexerPattern
+
+/*
+ * PatternMakerUserFn type.
+ */
+export type PatternMakerUserFn = (
+  pattern: PatternMakerFn
+) => PatternLexerPattern[]
+
+/*
  * PatternLexerRule class.
  */
 export class PatternLexerRule implements ILexerRule {
@@ -29,10 +44,35 @@ export class PatternLexerRule implements ILexerRule {
   /**
    * PatternLexerRule constructor.
    *
+   * @param patterns Pattern maker user function.
+   */
+  constructor(patterns: PatternMakerUserFn)
+
+  /**
+   * PatternLexerRule constructor.
+   *
+   * @param patterns Pattern array.
+   */
+  constructor(patterns: PatternLexerPattern[])
+
+  /**
+   * PatternLexerRule constructor.
+   *
    * @param patterns Patterns.
    */
-  constructor(patterns: PatternLexerPattern[]) {
-    this.patterns = patterns.sort(({ pattern: a }, { pattern: b }) =>
+  constructor(patterns: PatternLexerPattern[] | PatternMakerUserFn) {
+    let patternsArray: PatternLexerPattern[] = []
+
+    if (typeof patterns === 'function') {
+      patternsArray = patterns((pattern: string, kind: NoDataTokenKind) => ({
+        pattern,
+        kind,
+      }))
+    } else {
+      patternsArray = patterns
+    }
+
+    this.patterns = patternsArray.sort(({ pattern: a }, { pattern: b }) =>
       a.length < b.length ? 1 : -1
     )
   }
