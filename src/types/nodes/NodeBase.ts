@@ -4,11 +4,11 @@ import { ILoc } from '../../interfaces'
 /*
  * NodeBase type.
  */
-export type NodeBase = {
+export type NodeBase<Kind extends NodeKind> = {
   /**
    * Node kind.
    */
-  kind: NodeKind
+  kind: Kind
 
   /**
    * Node loc.
