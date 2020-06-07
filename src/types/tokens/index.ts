@@ -1,10 +1,11 @@
 export * from './TokenBase'
 
 // Literals
-export * from './SymbolToken'
+export * from './LiteralToken'
 export * from './LiteralTokenBase'
 export * from './NumericLiteralToken'
 export * from './StringLiteralToken'
+export * from './BooleanLiteralToken'
 
 // Comments
 export * from './CommentToken'
