@@ -1,7 +1,10 @@
 /*
  * LiteralTokenKind type.
  */
-export type LiteralTokenKind = 'numeric_literal' | 'string_literal'
+export type LiteralTokenKind =
+  | 'numeric_literal'
+  | 'string_literal'
+  | 'boolean_literal'
 
 /*
  * CommentTokenKind type.
@@ -46,17 +49,11 @@ export type SymbolTokenKind =
 export type ReservedKeywordTokenKind = 'if' | 'else' | 'const' | 'let'
 
 /*
- * KeywordTokenKind type.
- */
-export type KeywordTokenKind = 'true' | 'false'
-
-/*
  * NoDataTokenKind type.
  */
 export type NoDataTokenKind =
   | SymbolTokenKind
   | ReservedKeywordTokenKind
-  | KeywordTokenKind
   | 'new_line'
 
 /*
