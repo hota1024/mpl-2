@@ -1,6 +1,7 @@
 // Literals
 export * from './NumericLiteralLexerRule'
 export * from './StringLiteralLexerRule'
+export * from './BooleanLiteralLexerRule'
 
 // Comments
 export * from './InlineCommentLexerRule'
