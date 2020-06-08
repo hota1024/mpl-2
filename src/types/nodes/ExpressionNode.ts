@@ -3,6 +3,7 @@ import { StringLiteralExpression } from './StringLiteralExpression'
 import { BooleanLiteralExpression } from './BooleanLiteralExpression'
 import { BinaryExpression } from './BinaryExpression'
 import { UnaryExpression } from './UnaryExpression'
+import { IdentifierExpression } from './IdentifierExpression'
 
 export * from './NumericLiteralExpression'
 export * from './StringLiteralExpression'
@@ -17,3 +18,4 @@ export type ExpressionNode =
   | NumericLiteralExpression
   | StringLiteralExpression
   | BooleanLiteralExpression
+  | IdentifierExpression
