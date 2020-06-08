@@ -6,6 +6,9 @@ export type ExpressionKind =
   | 'unary_expression'
   | 'call_expression'
   | 'object_expression'
+  | 'numeric_literal_expression'
+  | 'string_literal_expression'
+  | 'boolean_literal_expression'
 
 /**
  * StatementKind type.
