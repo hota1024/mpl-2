@@ -6,9 +6,13 @@ import { UnaryExpression } from './UnaryExpression'
 import { IdentifierExpression } from './IdentifierExpression'
 import { CallExpression } from './CallExpression'
 
+export * from './BinaryExpression'
+export * from './UnaryExpression'
+export * from './CallExpression'
 export * from './NumericLiteralExpression'
 export * from './StringLiteralExpression'
 export * from './BooleanLiteralExpression'
+export * from './IdentifierExpression'
 
 /*
  * ExpressionNode type.
