@@ -4,6 +4,9 @@ import { IfStatement } from './IfStatement'
 import { VariableDeclarationStatement } from './VariableDeclarationStatement'
 
 export * from './ExpressionNode'
+export * from './BlockStatement'
+export * from './IfStatement'
+export * from './VariableDeclarationStatement'
 
 /*
  * StatementNode type.
