@@ -2,7 +2,6 @@ export * from './NodeBase'
 
 export * from './ExpressionNode'
 export * from './StatementNode'
-
-export * from './Parameter'
+export * from './OtherNode'
 
 export * from './Node'
