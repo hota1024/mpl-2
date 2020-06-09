@@ -24,4 +24,4 @@ export type StatementKind =
 /*
  * NodeKindtype.
  */
-export type NodeKind = ExpressionKind | StatementKind
+export type NodeKind = ExpressionKind | StatementKind | 'parameter'
