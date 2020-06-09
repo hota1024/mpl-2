@@ -32,6 +32,7 @@ export type SymbolTokenKind =
   | 'slash_equals'
   | 'equals'
   | 'ampersand_ampersand'
+  | 'bar_bar'
   | 'left_parenthesis'
   | 'right_parenthesis'
   | 'left_curly_braces'

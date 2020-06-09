@@ -24,6 +24,7 @@ import {
 } from '../'
 import { EqualsEqualsToken } from './EqualsEqualsToken'
 import { AmpersandAmpersandToken } from './AmpersandAmpersandToken'
+import { BarBarToken } from './BarBarToken'
 
 /*
  * SymbolToken type.
@@ -53,3 +54,4 @@ export type SymbolToken =
   | ColonToken
   | QuestionToken
   | AmpersandAmpersandToken
+  | BarBarToken
