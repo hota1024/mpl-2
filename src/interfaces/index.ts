@@ -1,4 +1,5 @@
 export * from './Lexer'
 export * from './LexerRule'
 export * from './Loc'
+export * from './Parser'
 export * from './Walker'
