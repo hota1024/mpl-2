@@ -31,6 +31,8 @@ export class Lexer implements ILexer {
       pattern('>=', 'greater_than_equals'),
       pattern('<', 'less_than'),
       pattern('<=', 'less_than_equals'),
+      pattern('&&', 'ampersand_ampersand'),
+      pattern('||', 'bar_bar'),
       pattern('+', 'plus'),
       pattern('+=', 'plus_equals'),
       pattern('-', 'minus'),
