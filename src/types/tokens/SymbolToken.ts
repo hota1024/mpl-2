@@ -23,6 +23,7 @@ import {
   QuestionToken,
 } from '../'
 import { EqualsEqualsToken } from './EqualsEqualsToken'
+import { AmpersandAmpersandToken } from './AmpersandAmpersandToken'
 
 /*
  * SymbolToken type.
@@ -51,3 +52,4 @@ export type SymbolToken =
   | SemicolonToken
   | ColonToken
   | QuestionToken
+  | AmpersandAmpersandToken
