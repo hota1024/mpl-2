@@ -1,4 +1,4 @@
-import { Token, Node } from '../types'
+import { Token, Root } from '../types'
 
 /*
  * Parser interface.
@@ -7,5 +7,5 @@ export interface IParser {
   /**
    * Parse tokens and return AST.
    */
-  parse(tokens: Token[]): Node
+  parse(tokens: Token[]): Root
 }
