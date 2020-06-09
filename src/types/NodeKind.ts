@@ -24,7 +24,7 @@ export type StatementKind =
 /*
  * OtherNodeKind type.
  */
-export type OtherNodeKind = 'paramter'
+export type OtherNodeKind = 'parameter'
 
 /*
  * NodeKindtype.
