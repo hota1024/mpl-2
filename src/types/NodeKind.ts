@@ -24,7 +24,7 @@ export type StatementKind =
 /*
  * OtherNodeKind type.
  */
-export type OtherNodeKind = 'parameter'
+export type OtherNodeKind = 'root' | 'parameter'
 
 /*
  * NodeKindtype.
