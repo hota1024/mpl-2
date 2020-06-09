@@ -22,6 +22,11 @@ export type StatementKind =
   | 'function_declaration_statement'
 
 /*
+ * OtherNodeKind type.
+ */
+export type OtherNodeKind = 'paramter'
+
+/*
  * NodeKindtype.
  */
-export type NodeKind = ExpressionKind | StatementKind | 'parameter'
+export type NodeKind = ExpressionKind | StatementKind | OtherNodeKind
