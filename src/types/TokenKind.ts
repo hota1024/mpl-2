@@ -27,6 +27,7 @@ export type SymbolTokenKind =
   | 'minus_equals'
   | 'asterisk'
   | 'asterisk_equals'
+  | 'asterisk_asterisk_equals'
   | 'asterisk_asterisk'
   | 'slash'
   | 'slash_equals'

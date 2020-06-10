@@ -29,6 +29,7 @@ import { PlusEqualsToken } from './PlusEqualsToken'
 import { MinusEqualsToken } from './MinusEqualsToken'
 import { AsteriskEqualsToken } from './AsteriskEqualsToken'
 import { SlashEqualsToken } from './SlashEqualsToken'
+import { AsteriskAsteriskEqualsToken } from './AsteriskAsteriskEqualsToken'
 
 /*
  * SymbolToken type.
@@ -38,6 +39,7 @@ export type SymbolToken =
   | PlusEqualsToken
   | MinusEqualsToken
   | AsteriskEqualsToken
+  | AsteriskAsteriskEqualsToken
   | SlashEqualsToken
   | EqualsEqualsToken
   | ExclamationEqualsToken
