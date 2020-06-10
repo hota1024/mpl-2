@@ -26,6 +26,7 @@ import { EqualsEqualsToken } from './EqualsEqualsToken'
 import { AmpersandAmpersandToken } from './AmpersandAmpersandToken'
 import { BarBarToken } from './BarBarToken'
 import { PlusEqualsToken } from './PlusEqualsToken'
+import { MinusEqualsToken } from './MinusEqualsToken'
 
 /*
  * SymbolToken type.
@@ -33,6 +34,7 @@ import { PlusEqualsToken } from './PlusEqualsToken'
 export type SymbolToken =
   | EqualsToken
   | PlusEqualsToken
+  | MinusEqualsToken
   | EqualsEqualsToken
   | ExclamationEqualsToken
   | GreaterThanToken
