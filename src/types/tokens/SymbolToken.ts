@@ -25,12 +25,14 @@ import {
 import { EqualsEqualsToken } from './EqualsEqualsToken'
 import { AmpersandAmpersandToken } from './AmpersandAmpersandToken'
 import { BarBarToken } from './BarBarToken'
+import { PlusEqualsToken } from './PlusEqualsToken'
 
 /*
  * SymbolToken type.
  */
 export type SymbolToken =
   | EqualsToken
+  | PlusEqualsToken
   | EqualsEqualsToken
   | ExclamationEqualsToken
   | GreaterThanToken
