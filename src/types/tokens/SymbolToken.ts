@@ -30,6 +30,7 @@ import { MinusEqualsToken } from './MinusEqualsToken'
 import { AsteriskEqualsToken } from './AsteriskEqualsToken'
 import { SlashEqualsToken } from './SlashEqualsToken'
 import { AsteriskAsteriskEqualsToken } from './AsteriskAsteriskEqualsToken'
+import { PercentToken } from './PercentToken'
 
 /*
  * SymbolToken type.
@@ -52,6 +53,7 @@ export type SymbolToken =
   | AsteriskToken
   | AsteriskAsteriskToken
   | SlashToken
+  | PercentToken
   | LeftParenthesisToken
   | RightParenthesisToken
   | LeftCurlyBracesToken
