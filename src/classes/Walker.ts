@@ -18,23 +18,27 @@ export class Walker<T> implements IWalker<T> {
   /**
    * Walker constructor.
    * @param values Values array.
+   * @param initialIndex Initial index.
    */
-  constructor(values: T[])
+  constructor(values: T[], initialIndex?: number)
 
   /**
    * Walker constructor.
    *
    * @param values Values iterator.
+   * @param initialIndex Initial index.
    */
-  constructor(values: Iterable<T>)
+  constructor(values: Iterable<T>, initialIndex?: number)
 
   /**
    * Walker constructor.
    *
    * @param values Values.
+   * @param initialIndex Initial index.
    */
-  constructor(values: T[] | Iterable<T>) {
+  constructor(values: T[] | Iterable<T>, initialIndex = 0) {
     this.mValues = Array.isArray(values) ? values : Array.from(values)
+    this.mIndex = initialIndex
   }
 
   index(): number {
