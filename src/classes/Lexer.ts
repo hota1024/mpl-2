@@ -8,6 +8,7 @@ import {
   StringLiteralLexerRule,
   PatternLexerRule,
   LexerInvalidCharError,
+  BooleanLiteralLexerRule,
 } from '../impls'
 import { Walker } from './Walker'
 import { Loc } from './Loc'
@@ -24,6 +25,7 @@ export class Lexer implements ILexer {
     new RangeCommentLexerRule(),
     new NumericLiteralLexerRule(),
     new StringLiteralLexerRule(),
+    new BooleanLiteralLexerRule(),
     new PatternLexerRule((pattern) => [
       pattern('==', 'equals_equals'),
       pattern('!=', 'exclamation_equals'),
