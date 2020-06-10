@@ -31,6 +31,7 @@ import { AsteriskEqualsToken } from './AsteriskEqualsToken'
 import { SlashEqualsToken } from './SlashEqualsToken'
 import { AsteriskAsteriskEqualsToken } from './AsteriskAsteriskEqualsToken'
 import { PercentToken } from './PercentToken'
+import { PercentEqualsToken } from './PercentEqualsToken'
 
 /*
  * SymbolToken type.
@@ -42,6 +43,7 @@ export type SymbolToken =
   | AsteriskEqualsToken
   | AsteriskAsteriskEqualsToken
   | SlashEqualsToken
+  | PercentEqualsToken
   | EqualsEqualsToken
   | ExclamationEqualsToken
   | GreaterThanToken
