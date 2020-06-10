@@ -28,6 +28,7 @@ import { BarBarToken } from './BarBarToken'
 import { PlusEqualsToken } from './PlusEqualsToken'
 import { MinusEqualsToken } from './MinusEqualsToken'
 import { AsteriskEqualsToken } from './AsteriskEqualsToken'
+import { SlashEqualsToken } from './SlashEqualsToken'
 
 /*
  * SymbolToken type.
@@ -37,6 +38,7 @@ export type SymbolToken =
   | PlusEqualsToken
   | MinusEqualsToken
   | AsteriskEqualsToken
+  | SlashEqualsToken
   | EqualsEqualsToken
   | ExclamationEqualsToken
   | GreaterThanToken
