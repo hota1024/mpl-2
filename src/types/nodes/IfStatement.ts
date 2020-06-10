@@ -19,5 +19,5 @@ export type IfStatement = NodeBase<'if_statement'> & {
   /**
    * Else statement.
    */
-  else: BlockStatement | IfStatement
+  else?: BlockStatement | IfStatement
 }
