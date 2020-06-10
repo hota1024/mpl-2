@@ -1,6 +1,6 @@
 import { NodeBase } from './NodeBase'
-import { ExpressionStatement } from './ExpressionStatement'
 import { BlockStatement } from './BlockStatement'
+import { ExpressionNode } from './ExpressionNode'
 
 /*
  * IfStatement type.
@@ -9,7 +9,7 @@ export type IfStatement = NodeBase<'if_statement'> & {
   /**
    * Condition expression.
    */
-  condition: ExpressionStatement
+  condition: ExpressionNode
 
   /**
    * Then statement.
