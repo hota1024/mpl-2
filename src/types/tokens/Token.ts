@@ -16,6 +16,3 @@ export type Token =
   // Others
   | NewLineToken
   | IdentifierToken
-
-declare const t: Token
-t.kind
