@@ -1,5 +1,6 @@
 import { IfToken, ElseToken, ConstToken, LetToken } from '../'
 import { FnToken } from './FnToken'
+import { WhileToken } from './WhileToken'
 
 /*
  * ReservedKeywordToken type.
@@ -10,3 +11,4 @@ export type ReservedKeywordToken =
   | ConstToken
   | LetToken
   | FnToken
+  | WhileToken
