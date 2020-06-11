@@ -51,7 +51,13 @@ export type SymbolTokenKind =
 /*
  * ReservedKeywordTokenKind type.
  */
-export type ReservedKeywordTokenKind = 'if' | 'else' | 'const' | 'let'
+export type ReservedKeywordTokenKind =
+  | 'if'
+  | 'else'
+  | 'const'
+  | 'let'
+  | 'fn'
+  | 'while'
 
 /*
  * NoDataTokenKind type.
