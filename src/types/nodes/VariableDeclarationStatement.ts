@@ -1,6 +1,7 @@
 import { NodeBase } from './NodeBase'
 import { IdentifierExpression } from './IdentifierExpression'
 import { ExpressionNode } from './ExpressionNode'
+import { Token } from '../tokens'
 
 /*
  * VariableDeclarationStatement type.
@@ -14,7 +15,12 @@ export type VariableDeclarationStatement = NodeBase<
   name: IdentifierExpression
 
   /**
+   * Declaration token.
+   */
+  declaratoin: Token
+
+  /**
    * Initializer expression.
    */
-  initializer: ExpressionNode
+  initializer?: ExpressionNode
 }
