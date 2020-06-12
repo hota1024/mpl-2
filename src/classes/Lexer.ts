@@ -65,6 +65,7 @@ export class Lexer implements ILexer {
       pattern('let', 'let'),
       pattern('fn', 'fn'),
       pattern('while', 'while'),
+      pattern('return', 'return'),
       pattern('\n', 'new_line'),
     ]),
     new IdentifierLexerRule(),
