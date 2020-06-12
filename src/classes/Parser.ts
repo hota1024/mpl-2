@@ -12,6 +12,8 @@ import {
   CallExpression,
   BlockStatement,
   VariableDeclarationStatement,
+  FunctionDeclarationStatement,
+  Parameter,
 } from '../types'
 import { Walker } from './Walker'
 import { Loc } from './Loc'
@@ -80,19 +82,76 @@ export class Parser implements IParser {
       return this.parseVariableDeclarationStatement(walker)
     }
 
+    if (peek.kind === 'fn') {
+      return this.parseFunctionDeclarationStatement(walker)
+    }
+
     return this.parseExpressionStatement(walker)
   }
 
+  private parseFunctionDeclarationStatement(
+    walker: TokenWalker
+  ): FunctionDeclarationStatement {
+    walker.next()
+    const declarationToken = walker.value()
+
+    walker.next()
+    const name = this.parseIdentifier(walker)
+
+    walker.next()
+    if (walker.value().kind !== 'left_parenthesis') {
+      throw new Error('unexpected token')
+    }
+
+    const parameters: Parameter[] = []
+
+    while (true as const) {
+      const peek = walker.peek()
+
+      if (!peek) {
+        throw new Error('peek error')
+      }
+
+      if (peek.kind === 'right_parenthesis') {
+        break
+      }
+
+      if (peek.kind === 'comma' || peek.kind === 'new_line') {
+        walker.next()
+      }
+
+      walker.next()
+      const identifier = this.parseIdentifier(walker)
+      parameters.push({
+        kind: 'parameter',
+        name: identifier,
+        loc: identifier.loc,
+      })
+    }
+
+    const body = this.parseBlockStatement(walker)
+    console.log({ body })
+
+    return {
+      kind: 'function_declaration_statement',
+      name,
+      parameters,
+      body,
+      loc: declarationToken.loc.merge(walker.value().loc),
+    }
+  }
+
+  /**
+   * Parse variable declaration statement.
+   *
+   * @param walker Token walker.
+   */
   private parseVariableDeclarationStatement(
     walker: TokenWalker
   ): VariableDeclarationStatement {
     walker.next()
     const declarationToken = walker.value()
-    const name = this.parseAtom(walker)
-
-    if (name.kind !== 'identifier_expression') {
-      throw new Error('invalid variable name')
-    }
+    const name = this.parseIdentifier(walker)
 
     const peek = walker.peek()
 
@@ -435,12 +494,8 @@ export class Parser implements IParser {
     }
 
     if (token.kind === 'identifier') {
-      const identifierToken = token
-      const identifier: IdentifierExpression = {
-        kind: 'identifier_expression',
-        identifier: token.identifier,
-        loc: identifierToken.loc,
-      }
+      const identifier = this.parseIdentifier(walker)
+
       const peek = walker.peek()
 
       if (peek && peek.kind === 'left_parenthesis') {
@@ -484,14 +539,36 @@ export class Parser implements IParser {
 
     if (token.kind === 'left_parenthesis') {
       const expression = this.parseExpression(walker)
-      const next = walker.next()
+      const token = walker.value()
 
-      if (next && next.kind === 'right_parenthesis') {
+      if (token.kind === 'right_parenthesis') {
         return expression
       }
 
       throw new Error('missing )')
     }
+  }
+
+  /**
+   * Parse identifier.
+   *
+   * @param walker Token walker.
+   */
+  private parseIdentifier(walker: TokenWalker): IdentifierExpression {
+    const token = walker.value()
+
+    if (token.kind !== 'identifier') {
+      throw new Error('no identifier')
+    }
+
+    const identifierToken = token
+    const identifier: IdentifierExpression = {
+      kind: 'identifier_expression',
+      identifier: token.identifier,
+      loc: identifierToken.loc,
+    }
+
+    return identifier
   }
 }
 
@@ -546,6 +623,10 @@ class Logger {
       return string
     }
 
+    if (typeof object === 'undefined') {
+      return chalk.grey('undefined')
+    }
+
     return chalk.red.bold('<error>')
   }
 
@@ -566,10 +647,10 @@ console.clear()
 const lexer = new Lexer()
 const parser = new Parser()
 const logger = new Logger(['loc'])
-const source = 'if () {}'
+const source = 'fn test(a, b) {}'
 
 console.log('============Input===========')
-console.log('> Input', source)
+console.log('> Input:', source)
 console.log()
 
 console.log('==========Tokenize==========')
@@ -579,6 +660,5 @@ console.log()
 
 console.log('============Parse===========')
 const ast = parser.parse(tokens)
-console.log(source)
 logger.log(ast)
 console.log()
