@@ -128,9 +128,9 @@ export class Parser implements IParser {
         loc: identifier.loc,
       })
     }
+    walker.next()
 
     const body = this.parseBlockStatement(walker)
-    console.log({ body })
 
     return {
       kind: 'function_declaration_statement',
@@ -647,7 +647,7 @@ console.clear()
 const lexer = new Lexer()
 const parser = new Parser()
 const logger = new Logger(['loc'])
-const source = 'fn test(a, b) {}'
+const source = 'fn test(a, b) { print("Hello world") }'
 
 console.log('============Input===========')
 console.log('> Input:', source)
