@@ -1,13 +1,10 @@
 import { IParser } from '../interfaces'
-import chalk from 'chalk'
 import {
   Token,
   Root,
   StatementNode,
   IfStatement,
   ExpressionNode,
-  SymbolToken,
-  UnaryExpression,
   IdentifierExpression,
   CallExpression,
   BlockStatement,
@@ -19,7 +16,7 @@ import {
 import { Walker } from './Walker'
 import { Loc } from './Loc'
 import { ExpressionStatement } from '../types/nodes/ExpressionStatement'
-import { Lexer } from './Lexer'
+import { ReturnStatement } from '../types/nodes/ReturnStatement'
 
 /*
  * TokenWalker type.
@@ -97,7 +94,28 @@ export class Parser implements IParser {
       return this.parseWhileStatement(walker)
     }
 
+    if (peek.kind === 'return') {
+      return this.parseReturnStatement(walker)
+    }
+
     return this.parseExpressionStatement(walker)
+  }
+
+  /**
+   * Parse return statement.
+   *
+   * @param walker Token walker.
+   */
+  private parseReturnStatement(walker: TokenWalker): ReturnStatement {
+    walker.next()
+    const returnToken = walker.value()
+    const expression = this.parseExpression(walker)
+
+    return {
+      kind: 'return_statement',
+      expression,
+      loc: returnToken.loc.merge(expression.loc),
+    }
   }
 
   /**
@@ -608,100 +626,3 @@ export class Parser implements IParser {
     return identifier
   }
 }
-
-class Logger {
-  constructor(private ignoreKeys: string[] = []) {}
-
-  log(object: unknown): void {
-    console.log(this.getObjectString(object, 0))
-  }
-
-  private getObjectString(object: unknown, offset: number, keyRight = false) {
-    if (typeof object === 'number') {
-      return chalk.blue(object)
-    }
-
-    if (typeof object === 'boolean') {
-      return chalk.blue(object)
-    }
-
-    if (typeof object === 'string') {
-      return chalk.red(`"${object}"`)
-    }
-
-    if (Array.isArray(object)) {
-      let string = (keyRight ? '' : this.getSpaces(offset)) + '[\n'
-
-      Object.keys(object).forEach((key) => {
-        if (this.ignoreKeys.find((k) => k === key)) {
-          return
-        }
-        string += this.getObjectString(object[key], offset + 1)
-        string += '\n'
-      })
-
-      string += this.getSpaces(offset) + ']'
-      return string
-    }
-
-    if (typeof object === 'object') {
-      let string = (keyRight ? '' : this.getSpaces(offset)) + '{\n'
-
-      Object.keys(object).forEach((key) => {
-        if (this.ignoreKeys.find((k) => k === key)) {
-          return
-        }
-        string += this.getSpaces(offset + 1) + chalk.green(key) + ' '
-        string += this.getObjectString(object[key], offset + 1, true)
-        string += '\n'
-      })
-
-      string += this.getSpaces(offset) + '}'
-      return string
-    }
-
-    if (typeof object === 'undefined') {
-      return chalk.grey('undefined')
-    }
-
-    return chalk.red.bold('<error>')
-  }
-
-  private getSpaces(offset: number) {
-    let string = ''
-    const colors = [chalk.gray]
-    const space = '¬'
-
-    for (let i = 0; i < offset; ++i) {
-      string += colors[i % colors.length](space)
-    }
-
-    return string
-  }
-}
-
-console.clear()
-const lexer = new Lexer()
-const parser = new Parser()
-const logger = new Logger(['loc'])
-const source = `
-fn fib(num) {
-}
-
-print()
-`.trim()
-
-console.log('============Input===========')
-console.log('> Input:', source)
-console.log()
-
-console.log('==========Tokenize==========')
-const tokens = lexer.tokenize(source)
-logger.log(tokens)
-console.log()
-
-console.log('============Parse===========')
-const ast = parser.parse(tokens)
-console.log(source)
-logger.log(ast)
-console.log()
