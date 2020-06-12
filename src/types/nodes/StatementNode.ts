@@ -4,6 +4,7 @@ import { IfStatement } from './IfStatement'
 import { VariableDeclarationStatement } from './VariableDeclarationStatement'
 import { FunctionDeclarationStatement } from './FunctionDeclarationStatement'
 import { WhileStatement } from './WhileStatement'
+import { ReturnStatement } from './ReturnStatement'
 
 export * from './ExpressionNode'
 export * from './BlockStatement'
@@ -22,3 +23,4 @@ export type StatementNode =
   | VariableDeclarationStatement
   | FunctionDeclarationStatement
   | WhileStatement
+  | ReturnStatement
