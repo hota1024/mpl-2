@@ -1,6 +1,7 @@
 import { NodeBase } from './NodeBase'
 import { IdentifierExpression } from './IdentifierExpression'
 import { Parameter } from './Parameter'
+import { BlockStatement } from './BlockStatement'
 
 /*
  * FunctionDeclarationStatement type.
@@ -17,4 +18,9 @@ export type FunctionDeclarationStatement = NodeBase<
    * Parameters array.
    */
   parameters: Parameter[]
+
+  /**
+   * Block.
+   */
+  body: BlockStatement
 }
