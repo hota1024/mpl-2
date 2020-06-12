@@ -14,6 +14,7 @@ import {
   VariableDeclarationStatement,
   FunctionDeclarationStatement,
   Parameter,
+  WhileStatement,
 } from '../types'
 import { Walker } from './Walker'
 import { Loc } from './Loc'
@@ -47,7 +48,13 @@ export class Parser implements IParser {
       statements.push(this.parseStatement(walker))
       const peek = walker.peek()
       if (peek && peek.kind === 'new_line') {
-        walker.next()
+        while (true as const) {
+          const peek = walker.peek()
+          if (peek && peek.kind !== 'new_line') {
+            break
+          }
+          walker.next()
+        }
       }
     }
 
@@ -86,9 +93,37 @@ export class Parser implements IParser {
       return this.parseFunctionDeclarationStatement(walker)
     }
 
+    if (peek.kind === 'while') {
+      return this.parseWhileStatement(walker)
+    }
+
     return this.parseExpressionStatement(walker)
   }
 
+  /**
+   * Parse while statement.
+   *
+   * @param walker Token walker.
+   */
+  private parseWhileStatement(walker: TokenWalker): WhileStatement {
+    walker.next()
+    const whileToken = walker.value()
+    const expression = this.parseExpression(walker)
+    const statement = this.parseBlockStatement(walker)
+
+    return {
+      kind: 'while_statement',
+      expression,
+      statement,
+      loc: whileToken.loc.merge(statement.loc),
+    }
+  }
+
+  /**
+   * Parse function declaration statement.
+   *
+   * @param walker Token walker.
+   */
   private parseFunctionDeclarationStatement(
     walker: TokenWalker
   ): FunctionDeclarationStatement {
@@ -137,7 +172,7 @@ export class Parser implements IParser {
       name,
       parameters,
       body,
-      loc: declarationToken.loc.merge(walker.value().loc),
+      loc: declarationToken.loc.merge(body.loc),
     }
   }
 
@@ -151,6 +186,7 @@ export class Parser implements IParser {
   ): VariableDeclarationStatement {
     walker.next()
     const declarationToken = walker.value()
+    walker.next()
     const name = this.parseIdentifier(walker)
 
     const peek = walker.peek()
@@ -238,9 +274,10 @@ export class Parser implements IParser {
       } else if (peek.kind === 'right_curly_braces') {
         walker.next()
         break
+      } else {
+        body.push(this.parseStatement(walker))
+        walker.next()
       }
-
-      body.push(this.parseStatement(walker))
     }
 
     return {
@@ -647,7 +684,12 @@ console.clear()
 const lexer = new Lexer()
 const parser = new Parser()
 const logger = new Logger(['loc'])
-const source = 'fn test(a, b) { print("Hello world") }'
+const source = `
+fn fib(num) {
+}
+
+print()
+`.trim()
 
 console.log('============Input===========')
 console.log('> Input:', source)
@@ -660,5 +702,6 @@ console.log()
 
 console.log('============Parse===========')
 const ast = parser.parse(tokens)
+console.log(source)
 logger.log(ast)
 console.log()
