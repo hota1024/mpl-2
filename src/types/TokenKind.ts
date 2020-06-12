@@ -58,6 +58,7 @@ export type ReservedKeywordTokenKind =
   | 'let'
   | 'fn'
   | 'while'
+  | 'return'
 
 /*
  * NoDataTokenKind type.
