@@ -21,6 +21,7 @@ export type StatementKind =
   | 'variable_declaration_statement'
   | 'function_declaration_statement'
   | 'while_statement'
+  | 'return_statement'
 
 /*
  * OtherNodeKind type.
