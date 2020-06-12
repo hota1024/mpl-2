@@ -20,6 +20,7 @@ export type StatementKind =
   | 'if_statement'
   | 'variable_declaration_statement'
   | 'function_declaration_statement'
+  | 'while_statement'
 
 /*
  * OtherNodeKind type.
