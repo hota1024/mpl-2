@@ -6,3 +6,4 @@ export * from './NodeKind'
 
 export * from './KuroType'
 export * from './Variable'
+export * from './Func'
