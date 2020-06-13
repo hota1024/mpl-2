@@ -5,3 +5,4 @@ export * from './nodes'
 export * from './NodeKind'
 
 export * from './KuroType'
+export * from './Variable'
