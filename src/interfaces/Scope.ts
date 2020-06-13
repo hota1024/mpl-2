@@ -1,4 +1,4 @@
-import { Variable, FunctionDeclarationStatement } from '../types'
+import { Variable, FunctionDeclarationStatement, Func } from '../types'
 
 /*
  * Scope interface.
@@ -16,27 +16,26 @@ export interface IScope {
    *
    * @param name Variable name.
    */
-  getVariable(name: string): Variable
+  resolveVariable(name: string): Variable
 
   /**
    * Add function.
    *
-   * @param func Function declaration statement.
+   * @param func Function.
    */
-  addFunction(func: FunctionDeclarationStatement): void
+  addFunction(func: Func): void
 
   /**
    * Returns function by name.
    *
    * @param name Function name.
    */
-  getFunction(name: string): FunctionDeclarationStatement
+  resolveFunction(name: string): Func
 
   /**
+   * Set parent scope.
    *
-   * @param scope
+   * @param scope Scope.
    */
-  addScope(scope: IScope): void
-
-  removeScope(scope: IScope): void
+  setParent(scope: IScope): void
 }
