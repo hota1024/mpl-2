@@ -21,8 +21,8 @@ export class Scope implements IScope {
   private parentScope?: IScope
 
   addVariable(variable: Variable): void {
-    if (this.variables.find((v) => v.name === name)) {
-      throw new Error(`cannot redeclare block-scoped variable `)
+    if (this.variables.find((v) => v.name === variable.name)) {
+      throw new Error(`cannot redelare block-scoped variable `)
     }
 
     this.variables.push(variable)
