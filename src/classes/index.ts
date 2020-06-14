@@ -1,4 +1,5 @@
 export * from './Loc'
+export * from './ModuleManager'
 export * from './Lexer'
 export * from './Parser'
 export * from './Runtime'
