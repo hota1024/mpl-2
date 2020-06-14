@@ -12,10 +12,6 @@ export class StandardIO extends Module {
 
   readline: readline.Interface
 
-  constructor() {
-    super()
-  }
-
   onLoad(runtime: IRuntime): void {
     const p = this.usePrefix('io_')
 
