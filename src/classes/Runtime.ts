@@ -7,14 +7,9 @@ import { Scope } from './Scope'
  */
 export class Runtime implements IRuntime {
   /**
-   * Variables array.
+   * Scope.
    */
-  private variables: Variable[] = []
-
-  /**
-   * Functions array.
-   */
-  private functions: Func[] = []
+  private scope = new Scope()
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onStart(): void {}
@@ -23,7 +18,7 @@ export class Runtime implements IRuntime {
   onEnd(): void {}
 
   addVariable(name: string, value: KuroType): void {
-    this.variables.push({
+    this.scope.addVariable({
       name,
       value,
       mutable: true,
@@ -31,7 +26,7 @@ export class Runtime implements IRuntime {
   }
 
   addConstant(name: string, value: KuroType): void {
-    this.variables.push({
+    this.scope.addVariable({
       name,
       value,
       mutable: false,
@@ -44,25 +39,20 @@ export class Runtime implements IRuntime {
 
   addFunction(nameOrFunc: string | FuncCall, func?: FuncCall): void {
     if (typeof nameOrFunc === 'function') {
-      this.functions.push({
+      this.scope.addFunction({
         name: nameOrFunc.name,
         call: nameOrFunc as (...args: KuroType[]) => KuroType,
       })
       return
     }
 
-    this.functions.push({
+    this.scope.addFunction({
       name: nameOrFunc,
       call: func,
     })
   }
 
   buildScope(): Scope {
-    const scope = new Scope()
-
-    this.variables.forEach((v) => scope.addVariable(v))
-    this.functions.forEach((f) => scope.addFunction(f))
-
-    return scope
+    return this.scope
   }
 }
