@@ -1,4 +1,4 @@
-import { IEvaluator } from '../interfaces'
+import { IEvaluator, IRuntime } from '../interfaces'
 import {
   KuroType,
   Node,
@@ -11,19 +11,41 @@ import {
   WhileStatement,
   FunctionDeclarationStatement,
 } from '../types'
-import { Parser } from './Parser'
-import { Lexer } from './Lexer'
 import { Scope } from './Scope'
 import { ExpressionStatement } from '../types/nodes/ExpressionStatement'
-import { Loc } from './Loc'
+import { Runtime } from './Runtime'
 
 /*
  * Evaluator class.
  */
 export class Evaluator implements IEvaluator {
+  /**
+   * Runtime.
+   */
+  readonly runtime: IRuntime
+
+  /**
+   * Evaluator constructor.
+   *
+   * @param runtime Runtime.
+   */
+  constructor(runtime?: IRuntime) {
+    if (runtime) {
+      this.runtime = runtime
+    } else {
+      this.runtime = new Runtime()
+    }
+  }
+
   evaluate(ast: Node): KuroType {
-    const scope = new Scope()
-    return this.evaluateAST(ast, scope)
+    this.runtime.onStart()
+    const scope = this.runtime.buildScope()
+
+    const result = this.evaluateAST(ast, scope)
+
+    this.runtime.onEnd()
+
+    return result
   }
 
   /**
@@ -372,32 +394,4 @@ export class Evaluator implements IEvaluator {
 
     return calculator(left, right)
   }
-}
-
-// console.clear()
-
-const lexer = new Lexer()
-const parser = new Parser()
-const evaluator = new Evaluator()
-const source = `
-`.trim()
-
-try {
-  const tokens = lexer.tokenize(source)
-  const ast = parser.parse(tokens)
-  const result = evaluator.evaluate(ast)
-
-  console.log(
-    source
-      .split('\n')
-      .map((v) => `> ${v}`)
-      .join('\n')
-  )
-  console.log('Result:', result)
-} catch (error) {
-  if (error.loc instanceof Loc) {
-    console.log(error.loc)
-  }
-
-  throw error
 }
