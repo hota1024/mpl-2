@@ -6,6 +6,16 @@ import { Scope } from '../classes/Scope'
  */
 export interface IRuntime {
   /**
+   * Call on runtime start.
+   */
+  onStart(): void
+
+  /**
+   * Call on runtime end.
+   */
+  onEnd(): void
+
+  /**
    * Add variable.
    *
    * @param name Name.

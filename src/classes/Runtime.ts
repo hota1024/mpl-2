@@ -16,6 +16,12 @@ export class Runtime implements IRuntime {
    */
   private functions: Func[] = []
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onStart(): void {}
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onEnd(): void {}
+
   addVariable(name: string, value: KuroType): void {
     this.variables.push({
       name,
