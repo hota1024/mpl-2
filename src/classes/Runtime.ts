@@ -32,6 +32,10 @@ export class Runtime implements IRuntime {
     })
   }
 
+  addFunction(func: FuncCall): void
+
+  addFunction(name: string, call: FuncCall): void
+
   addFunction(nameOrFunc: string | FuncCall, func?: FuncCall): void {
     if (typeof nameOrFunc === 'function') {
       this.functions.push({
