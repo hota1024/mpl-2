@@ -1,4 +1,3 @@
-import * as readline from 'readline'
 import * as readlineSync from 'readline-sync'
 import { IRuntime } from '../../../interfaces'
 import { KuroType } from '../../../types'
@@ -10,30 +9,23 @@ import { Module } from '../../../abstracts'
 export class StandardIO extends Module {
   id = 'std_io'
 
-  readline: readline.Interface
-
   onLoad(runtime: IRuntime): void {
     const p = this.usePrefix('io_')
-
-    this.readline = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    })
+    readlineSync.setPrompt('')
 
     runtime.addFunction(p('println'), (content: KuroType) => {
-      this.readline.write(content + '\n')
+      process.stdout.write(content + '\n')
     })
 
     runtime.addFunction(p('print'), (content: KuroType) => {
-      this.readline.write(content + '')
+      process.stdin.write(content + '')
     })
 
-    runtime.addFunction(p('input'), (message: KuroType = '') => {
-      return readlineSync.question(message)
+    runtime.addFunction(p('input'), () => {
+      return readlineSync.prompt()
     })
   }
 
-  onUnload(): void {
-    this.readline.close()
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onUnload(): void {}
 }
