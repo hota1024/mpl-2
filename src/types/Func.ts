@@ -1,6 +1,11 @@
 import { KuroType } from './KuroType'
 
 /*
+ * FuncCall type.
+ */
+export type FuncCall = (...args: KuroType[]) => KuroType
+
+/*
  * Func type.
  */
 export type Func = {
@@ -12,5 +17,5 @@ export type Func = {
   /**
    * Function body.
    */
-  call: (...args: unknown[]) => KuroType
+  call: (...args: KuroType[]) => KuroType
 }
