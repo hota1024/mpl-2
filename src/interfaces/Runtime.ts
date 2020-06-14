@@ -1,4 +1,4 @@
-import { KuroType } from '../types'
+import { KuroType, FuncCall } from '../types'
 import { Scope } from '../classes/Scope'
 
 /*
@@ -14,11 +14,19 @@ export interface IRuntime {
   addVariable(name: string, value: KuroType): void
 
   /**
+   * Add constant.
+   *
+   * @param name Name.
+   * @param value Value.
+   */
+  addConstant(name: string, value: KuroType): void
+
+  /**
    * Add named function.
    *
    * @param func Function.
    */
-  addFunction(func: (...args: KuroType[]) => KuroType): void
+  addFunction(func: FuncCall): void
 
   /**
    * Add function.
@@ -26,7 +34,7 @@ export interface IRuntime {
    * @param name Name.
    * @param call Function.
    */
-  addFunction(name: string, call: (...args: KuroType[]) => KuroType): void
+  addFunction(name: string, call: FuncCall): void
 
   /**
    * Build scope.
