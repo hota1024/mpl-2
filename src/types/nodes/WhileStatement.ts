@@ -1,6 +1,6 @@
 import { NodeBase } from './NodeBase'
 import { ExpressionNode } from './ExpressionNode'
-import { StatementNode } from './StatementNode'
+import { BlockStatement } from './BlockStatement'
 
 /*
  * WhileStatement type.
@@ -14,5 +14,5 @@ export type WhileStatement = NodeBase<'while_statement'> & {
   /**
    * Statement.
    */
-  statement: StatementNode
+  statement: BlockStatement
 }
