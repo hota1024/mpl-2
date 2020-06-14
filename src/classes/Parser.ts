@@ -47,7 +47,7 @@ export class Parser implements IParser {
       if (peek && peek.kind === 'new_line') {
         while (true as const) {
           const peek = walker.peek()
-          if (peek && peek.kind !== 'new_line') {
+          if (!peek || (peek && peek.kind !== 'new_line')) {
             break
           }
           walker.next()
