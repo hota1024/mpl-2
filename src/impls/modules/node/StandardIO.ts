@@ -20,8 +20,8 @@ export class StandardIO extends Module {
     })
   }
 
-  onLoad(runtime: IRuntime, prefix = 'io'): void {
-    const p = this.usePrefix(prefix)
+  onLoad(runtime: IRuntime): void {
+    const p = this.usePrefix('io_')
 
     runtime.addFunction(p('println'), (content: KuroType) => {
       this.readline.write(content + '\n')
@@ -34,5 +34,9 @@ export class StandardIO extends Module {
     runtime.addFunction(p('input'), (message: KuroType = '') => {
       return readlineSync.question(message)
     })
+  }
+
+  onUnload(): void {
+    this.readline.close()
   }
 }
