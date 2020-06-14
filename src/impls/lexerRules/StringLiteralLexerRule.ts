@@ -49,7 +49,7 @@ export class StringLiteralLexerRule implements ILexerRule {
     {
       start: `"`,
       end: `"`,
-      allowNewLine: false,
+      allowNewLine: true,
     },
   ]
 
