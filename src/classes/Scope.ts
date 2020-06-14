@@ -8,12 +8,12 @@ export class Scope implements IScope {
   /**
    * Variables array.
    */
-  private variables: Variable[]
+  private variables: Variable[] = []
 
   /**
    * Functions array.
    */
-  private functions: Func[]
+  private functions: Func[] = []
 
   /**
    * Parent scope.
