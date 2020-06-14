@@ -1,5 +1,5 @@
 import { Runtime, ModuleManager } from '../../classes'
-import { StandardIO } from '../modules'
+import { StandardIO, MathMod } from '../modules'
 
 /*
  * NodeRuntime class.
@@ -18,6 +18,7 @@ export class NodeRuntime extends Runtime {
   constructor() {
     super()
     this.modules.register(new StandardIO())
+    this.modules.register(new MathMod())
 
     this.addFunction('use_mod', (id: string) => {
       this.modules.loadTo(id, this)
