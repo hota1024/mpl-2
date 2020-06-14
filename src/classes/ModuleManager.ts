@@ -19,6 +19,9 @@ export type ModuleData = {
  * ModuleManager class.
  */
 export class ModuleManager implements IModuleManager {
+  /**
+   * Modules.
+   */
   private modules: ModuleData[] = []
 
   register(id: string, module: IModule): void
