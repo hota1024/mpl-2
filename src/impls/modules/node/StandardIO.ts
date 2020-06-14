@@ -14,14 +14,15 @@ export class StandardIO extends Module {
 
   constructor() {
     super()
-    this.readline = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    })
   }
 
   onLoad(runtime: IRuntime): void {
     const p = this.usePrefix('io_')
+
+    this.readline = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+    })
 
     runtime.addFunction(p('println'), (content: KuroType) => {
       this.readline.write(content + '\n')
