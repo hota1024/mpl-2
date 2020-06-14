@@ -1,3 +1,6 @@
 export * from './Loc'
 export * from './Lexer'
+export * from './Parser'
+export * from './Runtime'
+export * from './Scope'
 export * from './Walker'
