@@ -9,6 +9,8 @@ export abstract class Module implements IModule {
 
   abstract onLoad(runtime: IRuntime, ...args: KuroType[]): void
 
+  abstract onUnload(runtime: IRuntime): void
+
   /**
    * Returns prefix function.
    *

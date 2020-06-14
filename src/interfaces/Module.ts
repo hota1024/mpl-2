@@ -17,4 +17,11 @@ export interface IModule {
    * @param args Module args.
    */
   onLoad(runtime: IRuntime, ...args: KuroType[]): void
+
+  /**
+   * Call on module unload.
+   *
+   * @param runtime Runtime.
+   */
+  onUnload(runtime: IRuntime): void
 }
