@@ -4,6 +4,7 @@ import { LiteralToken } from './LiteralToken'
 import { CommentToken } from './CommentToken'
 import { SymbolToken } from './SymbolToken'
 import { ReservedKeywordToken } from './ReservedKeywordToken'
+import { SpaceToken } from './SpaceToken'
 
 /*
  * Token type.
@@ -16,3 +17,4 @@ export type Token =
   // Others
   | NewLineToken
   | IdentifierToken
+  | SpaceToken
