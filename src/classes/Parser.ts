@@ -23,6 +23,7 @@ import {
   PeekError,
   ParserInvalidElseStatement,
   ParserMissingLeftParenthesis,
+  ParserNoIdentifier,
 } from '../impls'
 
 /*
@@ -620,7 +621,7 @@ export class Parser implements IParser {
     const token = walker.value()
 
     if (token.kind !== 'identifier') {
-      throw new Error('no identifier')
+      throw new ParserNoIdentifier(token.loc)
     }
 
     const identifierToken = token
