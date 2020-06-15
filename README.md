@@ -13,6 +13,8 @@
 
 ## 🚀 Hello world
 
+ここでは `Kuro-delta` を用いて `Hello world` と画面に表示するプログラムの作成を行います。チュートリアルみたいなものです。
+
 ### ステップ1
 
 任意のディレクトリに `hello.kuro` というファイルを作成する。
@@ -33,6 +35,36 @@ npx kuro-delta hello.kuro
 ```
 
 `Hello world` と表示されれば成功です！🎉
+
+## サンプルプログラム
+
+サンプルプログラム集です。是非コピペして試してみてください！
+
+### 数当てゲーム
+
+```rust
+use_mod("std_io")
+use_mod("math")
+use_mod("parse")
+
+let ans = math_floor(math_random() * 100)
+let i = -1
+
+while i != ans {
+  io_print("0 ~ 99: ")
+  i = parse_int(io_input())
+
+  io_print(i + " is ")
+
+  if i == ans {
+    io_println("correct🎉")
+  } else if i < ans {
+    io_println("less than answer⬇️")
+  } else {
+    io_println("greater than answer⬆️")
+  }
+}
+```
 
 ## 基本構文
 
