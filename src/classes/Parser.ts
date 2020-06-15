@@ -290,7 +290,7 @@ export class Parser implements IParser {
     while (true as const) {
       const peek = walker.peek()
       if (!peek) {
-        throw new Error('peek error')
+        throw new PeekError(walker.locTo(-1))
       }
 
       if (peek.kind === 'new_line') {
@@ -514,7 +514,7 @@ export class Parser implements IParser {
         return this.parseAtom(walker)
       }
     } else {
-      throw new Error('peek error')
+      throw new PeekError(walker.locTo(-1))
     }
   }
 
@@ -527,7 +527,7 @@ export class Parser implements IParser {
     const token = walker.next()
 
     if (!token) {
-      throw new Error('peek error')
+      throw new PeekError(walker.locTo(-1))
     }
 
     if (token.kind === 'numeric_literal') {
@@ -568,7 +568,7 @@ export class Parser implements IParser {
           const peek = walker.peek()
 
           if (!peek) {
-            throw new Error('peek error')
+            throw new PeekError(walker.locTo(-1))
           }
 
           if (peek.kind === 'right_parenthesis') {
