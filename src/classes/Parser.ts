@@ -21,6 +21,7 @@ import {
   ParserNoStatementError,
   ParserUnexpectedToken,
   PeekError,
+  ParserInvalidElseStatement,
 } from '../impls'
 
 /*
@@ -257,7 +258,7 @@ export class Parser implements IParser {
         elseStatement.kind !== 'block_statement' &&
         elseStatement.kind !== 'if_statement'
       ) {
-        throw new Error('invalid else statement')
+        throw new ParserInvalidElseStatement(elseStatement.loc)
       }
 
       return {
