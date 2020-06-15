@@ -71,12 +71,18 @@ export class Lexer implements ILexer {
     new IdentifierLexerRule(),
   ]
 
-  tokenize(source: string): Token[] {
+  tokenize(source: string, withSpaces = false): Token[] {
     const tokens: Token[] = []
     const walker = new Walker(source)
 
     while (!walker.done()) {
       if (walker.value() === ' ') {
+        if (withSpaces) {
+          tokens.push({
+            kind: 'space',
+            loc: new Loc(walker.index(), walker.index() + 1),
+          })
+        }
         walker.next()
       } else {
         const rule = this.rules.find((rule) => rule.validate(walker))
