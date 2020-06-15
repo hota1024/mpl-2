@@ -933,6 +933,11 @@ buffer-from@1.x, buffer-from@^1.0.0:
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
   integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
 
+cac@^6.5.10:
+  version "6.5.10"
+  resolved "https://registry.yarnpkg.com/cac/-/cac-6.5.10.tgz#be1d4509af1809dca601685145cd80ea85dabe0d"
+  integrity sha512-uxyxsID5p5kYlFFnhw86A4c8K5QTLRp6JM4AY2OtCq5lnnn4DGxV8YI1Z5rlt6KUjEKpA4qM+WZQshMoJY6dQQ==
+
 cache-base@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/cache-base/-/cache-base-1.0.1.tgz#0a7f46416831c8b662ee36fe4e7c59d76f666ab2"
