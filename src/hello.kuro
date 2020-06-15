@@ -1,0 +1,3 @@
+use_mod("std_io")
+
+io_println("Hello world")
