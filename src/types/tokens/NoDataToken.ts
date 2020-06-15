@@ -1,15 +1,6 @@
-import {
-  SymbolToken,
-  ReservedKeywordToken,
-  KeywordToken,
-  NewLineToken,
-} from '../'
+import { SymbolToken, ReservedKeywordToken, NewLineToken } from '../'
 
 /*
  * NoDataToken type.
  */
-export type NoDataToken =
-  | SymbolToken
-  | ReservedKeywordToken
-  | KeywordToken
-  | NewLineToken
+export type NoDataToken = SymbolToken | ReservedKeywordToken | NewLineToken
