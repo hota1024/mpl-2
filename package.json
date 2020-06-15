@@ -11,6 +11,7 @@
     "cac": "^6.5.10",
     "chalk": "^4.1.0",
     "readline-sync": "^1.4.10",
+    "sophy": "^0.0.3",
     "ts-node": "^8.10.1",
     "typescript": "^3.9.3"
   },
