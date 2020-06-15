@@ -22,6 +22,7 @@ import {
   ParserUnexpectedToken,
   PeekError,
   ParserInvalidElseStatement,
+  ParserMissingLeftParenthesis,
 } from '../impls'
 
 /*
@@ -606,7 +607,7 @@ export class Parser implements IParser {
         return expression
       }
 
-      throw new Error('missing )')
+      throw new ParserMissingLeftParenthesis(token.loc)
     }
   }
 
