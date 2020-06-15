@@ -46,11 +46,6 @@ export * from './ElseToken'
 export * from './ConstToken'
 export * from './LetToken'
 
-// Keywords
-export * from './KeywordToken'
-export * from './TrueKeywordToken'
-export * from './FalseKeywordToken'
-
 // Others
 export * from './NoDataToken'
 
