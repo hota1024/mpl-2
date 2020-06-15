@@ -1,3 +1,4 @@
+import chalk from 'chalk'
 import { IKuro, IRuntime } from '../interfaces'
 import { KuroType } from '../types'
 import { Lexer } from './Lexer'
@@ -35,10 +36,38 @@ export class Kuro implements IKuro {
       return evaluator.evaluate(ast)
     } catch (error) {
       if (error instanceof LocatedError) {
-        console.log(error.loc)
-      }
+        const errorSource = error.loc.extract(source)
+        let line = 0
+        let lineHead = 0
+        let i
+        const lines = source.split('\n')
 
-      throw error
+        for (i = 0; i < source.length; ++i) {
+          if (source[i] === '\n') {
+            lineHead = i + 1
+            ++line
+          }
+
+          if (i === error.loc.start) {
+            break
+          }
+        }
+
+        const beforeSource = lines[line].slice(lineHead, i)
+        const displaySource = beforeSource + chalk.red(errorSource)
+
+        console.log(error.name + `(${error.loc.start}, ${error.loc.end})`)
+        console.log(`  at line ${line + 1}`)
+        console.log(line + 1 + ' | ' + displaySource)
+        console.log(
+          ' '.repeat((line + 1).toString().length + 3 + beforeSource.length) +
+            '^'.repeat(errorSource.length) +
+            ' <-' +
+            error.message
+        )
+      } else {
+        throw error
+      }
     }
   }
 }
