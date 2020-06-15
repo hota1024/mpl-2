@@ -17,7 +17,7 @@ import { Walker } from './Walker'
 import { Loc } from './Loc'
 import { ExpressionStatement } from '../types/nodes/ExpressionStatement'
 import { ReturnStatement } from '../types/nodes/ReturnStatement'
-import { ParserNoStatementError } from '../impls'
+import { ParserNoStatementError, ParserUnexpectedToken } from '../impls'
 
 /*
  * TokenWalker type.
@@ -154,7 +154,7 @@ export class Parser implements IParser {
 
     walker.next()
     if (walker.value().kind !== 'left_parenthesis') {
-      throw new Error('unexpected token')
+      throw new ParserUnexpectedToken(walker.value().loc)
     }
 
     const parameters: Parameter[] = []
