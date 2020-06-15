@@ -32,6 +32,8 @@ io_println("Hello world")
 npx kuro-delta hello.kuro
 ```
 
+`Hello world` と表示されれば成功です！🎉
+
 ## 基本構文
 
 ### リテラル
