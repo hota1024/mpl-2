@@ -1,5 +1,5 @@
 import { IRuntime } from '../interfaces'
-import { Variable, Func, KuroType, FuncCall } from '../types'
+import { KuroType, FuncCall } from '../types'
 import { Scope } from './Scope'
 
 /*
