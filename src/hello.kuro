@@ -1,3 +1,21 @@
 use_mod("std_io")
+use_mod("math")
+use_mod("parse")
 
-io_println("Hello world")
+let ans = math_floor(math_random() * 100)
+let i = -1
+
+while i != ans {
+  io_print("0 ~ 99: ")
+  i = parse_int(io_input())
+
+  io_print(i + " is ")
+
+  if i == ans {
+    io_println("correct🎉")
+  } else if i < ans {
+    io_println("less than answer⬇️")
+  } else {
+    io_println("greater than answer⬆️")
+  }
+}
