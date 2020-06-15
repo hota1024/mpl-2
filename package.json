@@ -1,7 +1,11 @@
 {
   "name": "kuro-delta",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "types"
+  ],
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.0",
