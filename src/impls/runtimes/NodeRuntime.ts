@@ -1,4 +1,5 @@
-import { Runtime, ModuleManager } from '../../classes'
+import { Runtime } from '../../classes/Runtime'
+import { ModuleManager } from '../../classes'
 import { StandardIO, MathMod, ParseMod, NodeModule, ArrayMod } from '../modules'
 
 /*
