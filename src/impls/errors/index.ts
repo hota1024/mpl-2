@@ -3,6 +3,7 @@ export * from './LexerInvalidCharError'
 export * from './LexerUnterminatedCommentError'
 export * from './LexerUnterminatedStringLiteralError'
 
+export * from './ParserInvalidElseStatement'
 export * from './ParserNoStatementError'
 export * from './ParserUnexpectedToken'
 
