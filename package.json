@@ -1,15 +1,13 @@
 {
   "name": "kuro-delta",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "lib/index.js",
   "files": [
     "lib",
     "types",
     "bin"
   ],
-  "bin": {
-    "kurod": "bin/kuro.js"
-  },
+  "bin": "bin/kurod.js",
   "license": "MIT",
   "dependencies": {
     "cac": "^6.5.10",
