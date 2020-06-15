@@ -4,8 +4,12 @@
   "main": "lib/index.js",
   "files": [
     "lib",
-    "types"
+    "types",
+    "bin"
   ],
+  "bin": {
+    "kurod": "bin/kuro.js"
+  },
   "license": "MIT",
   "dependencies": {
     "cac": "^6.5.10",
