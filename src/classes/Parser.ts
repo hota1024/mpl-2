@@ -17,7 +17,11 @@ import { Walker } from './Walker'
 import { Loc } from './Loc'
 import { ExpressionStatement } from '../types/nodes/ExpressionStatement'
 import { ReturnStatement } from '../types/nodes/ReturnStatement'
-import { ParserNoStatementError, ParserUnexpectedToken } from '../impls'
+import {
+  ParserNoStatementError,
+  ParserUnexpectedToken,
+  PeekError,
+} from '../impls'
 
 /*
  * TokenWalker type.
@@ -163,7 +167,7 @@ export class Parser implements IParser {
       const peek = walker.peek()
 
       if (!peek) {
-        throw new Error('peek error')
+        throw new PeekError(walker.locTo(-1))
       }
 
       if (peek.kind === 'right_parenthesis') {
