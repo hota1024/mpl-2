@@ -17,6 +17,7 @@ import { Walker } from './Walker'
 import { Loc } from './Loc'
 import { ExpressionStatement } from '../types/nodes/ExpressionStatement'
 import { ReturnStatement } from '../types/nodes/ReturnStatement'
+import { ParserNoStatementError } from '../impls'
 
 /*
  * TokenWalker type.
@@ -71,7 +72,7 @@ export class Parser implements IParser {
     const peek = walker.peek()
 
     if (!peek) {
-      throw new Error('no statement')
+      throw new ParserNoStatementError(new Loc(0, 0))
     }
 
     if (peek.kind === 'left_curly_braces') {
