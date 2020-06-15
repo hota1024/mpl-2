@@ -77,3 +77,4 @@ export type TokenKind =
   | NoDataTokenKind
   // Others
   | 'identifier'
+  | 'space'
