@@ -5,3 +5,5 @@ export * from './LexerUnterminatedStringLiteralError'
 
 export * from './ParserNoStatementError'
 export * from './ParserUnexpectedToken'
+
+export * from './PeekError'
