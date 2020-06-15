@@ -1,5 +1,5 @@
 import { Runtime, ModuleManager } from '../../classes'
-import { StandardIO, MathMod, ParseMod } from '../modules'
+import { StandardIO, MathMod, ParseMod, NodeModule } from '../modules'
 
 /*
  * NodeRuntime class.
@@ -18,6 +18,8 @@ export class NodeRuntime extends Runtime {
   constructor() {
     super()
     this.modules.register(new StandardIO())
+    this.modules.register(new NodeModule())
+
     this.modules.register(new MathMod())
     this.modules.register(new ParseMod())
 
