@@ -4,6 +4,7 @@ export * from './LexerUnterminatedCommentError'
 export * from './LexerUnterminatedStringLiteralError'
 
 export * from './ParserInvalidElseStatement'
+export * from './ParserMissingLeftParenthesis'
 export * from './ParserNoStatementError'
 export * from './ParserUnexpectedToken'
 
